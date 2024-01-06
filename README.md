@@ -118,9 +118,22 @@ Siendo **label** la columna utilizada como clase, y las demás los píxeles. En 
 
 ![archivo .zip con las imagenes](https://https://github.com/carlosMoragon/practica3_IA/blob/main/python/dataset_imagenes.zip)
 
+
+
 #### Identificar las características relevantes de los hechos:
 
-Al estar trabajando con datos
+Al estar trabajando con clasificación de imagenes, los parametros más relevantes son:
+
+- Los píxeles de la imagen.
+- El tipo de la imagen (Imágenes a color o blanco y negro).
+- El tamaño de las imagenes.
+- El número que se representa en la imagen.
+
+Tras el preprocesamiento de datos, se han establecido todas las imagenes del mismo tamaño y del mismo tipo, quedando como caractirísticas relevantes:
+
+- Los píxeles de la imagen.
+- El número que se representa en la imagen.
+
 
 #### Obtener un fichero .arff:
 
