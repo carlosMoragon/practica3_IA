@@ -139,7 +139,7 @@ Tras el preprocesamiento de datos, se han establecido todas las imagenes del mis
 
 Después del preprocesamiento de datos, se creó un archivo .arff, el cual se utilizará para evaluar distintos algoritmos.
 
-![archivo .arff](https://https://github.com/carlosMoragon/practica3_IA/blob/main/python/dataset_imagenes.csv.arff)
+![archivo .arff](https://github.com/carlosMoragon/practica3_IA/blob/main/python/dataset_imagenes.csv.arff)
 
 #### Evaluar distintos algoritmos de aprendizaje automático:
 
