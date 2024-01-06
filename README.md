@@ -44,4 +44,18 @@ Deberá ser el siguiente:
 
 ### Resolución de la práctica
 
+#### Elección del problema:
 
+El problema a resolver de cara a esta práctica es la **clasificación de imagenes en números del 0-9**.
+
+
+#### Elección de fuentes de datos:
+
+Para la elección de los datos se han tomado fotografías de números del 0-9.
+
+Los datos escogidos constan con un total de 42000 fotografias.
+
+![grafica numero imagenes por número](https://github.com/carlosMoragon/practica3_IA/imgs_readme/grafica_datos.png)
+
+
+   
