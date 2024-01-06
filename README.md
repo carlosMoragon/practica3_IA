@@ -149,14 +149,25 @@ Mi conjunto de datos consta de 42000 registros, los cuales tiene 785 columnas, d
 
 Al tener tantos datos y una capacidad de cómputo limitada, la evaluación de los algortimos no ha sido del todo satisfactoria.
 
-Random Forest:
+##### Random Forest:
+
+Random Forest es un algoritmo que crea multiples árboles de decisión durante su entrenamiento, convinandolos para tener un árbol más robusto y preciso.
+
+Random forest es utilizado en problemas de clasificación y regresión.
+
 ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/randomForest.png)
 
-Regresión Lineal:
+Al evaluar los datos con Random Forest, observamos:
+
+
+##### Regresión Lineal:
+
 ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/regresionLineal.png)
 
-Perceptron Multicapa / Red Neuronal:
+##### Perceptron Multicapa / Red Neuronal:
+
 ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/MultiLayerPerceptron.png)
+
 
 No obstante, en clase de "Inteligencia Artificial e Ingeniería del Conocimiento", hemos dado el concepto de red convolucional, las cuales son usadas para clasificación de imagenes.
 
