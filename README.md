@@ -217,11 +217,14 @@ Tras un análisis de los problemas anteriormente comentados, se decidió crear m
 
 Para la creación de esta red neuronal se han usado las siguientes herramientas:
 
-- 
+- **Google Colab:** Entorno de desarrollo en la nube, con una capacidad de computo superior a la utilizada anteriormente.
+- **Librerias de python:**
+     - **pandas:** Utilizado para el manejo de datos en forma de datasets.
+     - **tensorflow:** Utilizado para la creación de la red neuronal.
+     - **sklearn:** Utilizado para el entrenamiento de la red neuronal.
+     - **matplotlib:** Utilizado para evaluar de forma gráfica el entrenamiento del modelo.
 
-No obstante, en clase de "Inteligencia Artificial e Ingeniería del Conocimiento", hemos dado el concepto de red convolucional, las cuales son usadas para clasificación de imagenes.
 
-Por lo que he decidido seleccionar dicho algoritmo.
 
 #### Construcción de una red convolucional:
 
