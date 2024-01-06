@@ -143,6 +143,17 @@ Después del preprocesamiento de datos, se creó un archivo .arff, el cual se ut
 
 #### Evaluar distintos algoritmos de aprendizaje automático:
 
+En este paso obtuve un inconveniente, debido a la cantidad de datos utilizados.
+
+Mi conjunto de datos consta de 42000 registros, los cuales tiene 785 columnas, de las cuales 1 es 'label', es decir, el número que se representa en la imagen, y las otras 784 son cada uno de los píxeles.
+
+Al tener tantos datos y una capacidad de cómputo limitada, la evaluación de los algortimos no ha sido del todo satisfactoria.
+
+
+
+No obstante, en clase de "Inteligencia Artificial e Ingeniería del Conocimiento", hemos dado el concepto de red convolucional, las cuales son usadas para clasificación de imagenes.
+
+Por lo que he decidido seleccionar dicho algoritmo.
 
 #### Construcción de una red convolucional:
 
