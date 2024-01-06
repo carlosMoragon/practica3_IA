@@ -149,11 +149,82 @@ Mi conjunto de datos consta de 42000 registros, los cuales tiene 785 columnas, d
 
 Al tener tantos datos y una capacidad de cómputo limitada, la evaluación de los algortimos no ha sido del todo satisfactoria.
 
+##### Random Forest:
+
+Random Forest es un algoritmo que crea multiples árboles de decisión durante su entrenamiento, convinandolos para tener un árbol más robusto y preciso.
+
+Random forest es utilizado en problemas de clasificación y regresión.
+
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/randomForest.png)
+
+Al evaluar los datos con Random Forest, observamos:
+
+(Ignoramos el coeficiente de correlación, debido a que no es un problema de regresión, sino de clasificación.)
+
+- **Error absoluto medio:**
+Nos sale un valor bajo (0,0035), lo que es deseable.
+
+Lo que indica que las predicciones que realiza el modelo, difieren muy poco del valor real.
+  
+- **Error cuadrático medio:**
+El Error cuadrático medio es más grande que el Error cuadrático medio.
+
+Puede deberse a la penalización adicional de los errores más grandes. 
+  
+- **Error absoluto relativo:**
+El error absoluto relativo es de 90,0223%, lo que es relativamente alto.
+
+Sugiere que las predicciones pueden tener un margen de error considerable en relación con los valores reales.
+
+- **Error cuadrático relativo:**
+Igual que el Error absoluto Relativo, indica un alto error cuadrático en las predicciones del modelo.
 
 
-No obstante, en clase de "Inteligencia Artificial e Ingeniería del Conocimiento", hemos dado el concepto de red convolucional, las cuales son usadas para clasificación de imagenes.
 
-Por lo que he decidido seleccionar dicho algoritmo.
+Al obtener estos datos, se podrían ajustar el número de árboles creados por el modelo, pero se ha optado por otra opción.
+
+
+##### Regresión Lineal:
+
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/regresionLineal.png)
+
+El modelo de regresión lineal fue descartado tras un largo tiempo de procesamiento/entrenamiento del modelo.
+
+Es de suponer que el alto número de datos (42000) y la alta cantidad de características (785), han hecho que este algoritmo tarde mucho tiempo en el entrenamiento.
+
+Al trascurrir varias horas, se decidio interrumpir el procesamiento del algoritmo, siendo una variable crítica el rápido entrenamiento de un modelo.
+
+
+##### Perceptron Multicapa / Red Neuronal:
+
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/MultiLayerPerceptron.png)
+
+Buscando una mejora del tiempo de procesamiento, se decidio probar con el algoritmo Perceptrón Multicapa.
+
+Tras 3 horas de procesamiento, se decidio interrumpir la ejecución del algoritmo.
+
+Las posibles razones del largo tiempo de procesamiento pueden ser:
+
+- Alta complejidad del modelo, es decir, gran numero de capas y/o gran numero de neuronas por capa.
+- Una mala optimización de los hiperparámetros, es decir:
+     - Mala tasa de aprendizaje.
+     - Tamaño de lote alto.
+     - Función de activación no adecuada.
+
+##### Red neuronal convolucional:
+
+Tras un análisis de los problemas anteriormente comentados, se decidió crear manualmente una red neuronal en un sistema con un alto procesamiento.
+
+Para la creación de esta red neuronal se han usado las siguientes herramientas:
+
+- **Google Colab:** Entorno de desarrollo en la nube, con una capacidad de computo superior a la utilizada anteriormente.
+- **Librerias de python:**
+     - **pandas:** Utilizado para el manejo de datos en forma de datasets.
+     - **tensorflow:** Utilizado para la creación de la red neuronal.
+     - **sklearn:** Utilizado para el entrenamiento de la red neuronal.
+     - **matplotlib:** Utilizado para evaluar de forma gráfica el entrenamiento del modelo.
+
+
 
 #### Construcción de una red convolucional:
 
