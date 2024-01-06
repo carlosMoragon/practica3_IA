@@ -55,7 +55,100 @@ Para la elección de los datos se han tomado fotografías de números del 0-9.
 
 Los datos escogidos constan con un total de 42000 fotografias.
 
-![grafica numero imagenes por número](https://github.com/carlosMoragon/practica3_IA/imgs_readme/grafica_datos.png)
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/grafica_datos.png)
 
+#### Preprocesamiento de datos:
 
+Al trabajar con imagenes, se ha llevado a cabo un preprocesamiento de datos cuyo principal objetivo era separar las imagenes por pixeles, siendo estos pixeles las columnas del archivo .csv.
+
+Este preprocesamiento se ha hecho por medio de python, teniendo como resultado todos los datos en un archivo .csv.
+
+```{python}
+   from PIL import Image
+   import pandas as pd
+   import os
+   import numpy as np
+   import matplotlib.pyplot as plt
    
+   # Tras ejecutarlo hay que tratar el dataset
+   
+   directory = ".\\trainingSet\\"
+   numbers = list(range(10))
+   paths = list(map(lambda x: directory + str(x), numbers))
+   
+   datos_imagenes = []
+   for ruta_directorio in paths:
+
+       # Iterar sobre las imágenes en el directorio
+       for nombre_archivo in os.listdir(ruta_directorio):
+
+           if nombre_archivo.endswith(('.jpg', '.png', '.jpeg')):
+
+               # Construir la ruta completa al archivo de imagen
+               ruta_imagen = os.path.join(ruta_directorio, nombre_archivo)
+   
+               # Abrir la imagen con Pillow
+               imagen = Image.open(ruta_imagen)
+   
+               # Convertir la imagen a una serie de números (píxeles)
+               datos_pixeles = list(imagen.getdata())
+   
+               # Agregar datos de la imagen a la lista
+               datos_imagenes.append({'numero': int(ruta_directorio.split("\\trainingSet\\")[1][0]), 'pixeles': datos_pixeles})
+   
+   
+   df = pd.DataFrame(datos_imagenes)
+   
+   df.to_csv('dataset_imagenes.csv', index=False)
+   
+   print("El dataset de imágenes ha sido guardado en 'dataset_imagenes.csv'.")
+
+```
+
+Al empezar a entrenar el modelo con los datos me percate de que hacia falta realizar una modificación en el fichero. Esto se debe a que tenia como cabecera "numero, pixeles", por lo que el dataset era de 2 
+columnas.
+
+Para solucionarlo investigué como lo habian realizado otras personas, y me encontré varios casos que seguian la notación: 
+
+label,1x1,1x2,1x3,1x4,1x5,1x6,1x7,1x8,1x9,1x10,1x11,1x12, ... ,28x26,28x27,28x28
+
+Siendo **label** la columna utilizada como clase, y las demás los píxeles. En mi caso, trato con imagenes de 28x28 pixeles.
+
+![archivo csv](https://https://github.com/carlosMoragon/practica3_IA/blob/main/python/dataset_imagenes.csv)
+
+![archivo .zip con las imagenes](https://https://github.com/carlosMoragon/practica3_IA/blob/main/python/dataset_imagenes.zip)
+
+
+
+#### Identificar las características relevantes de los hechos:
+
+Al estar trabajando con clasificación de imagenes, los parametros más relevantes son:
+
+- Los píxeles de la imagen.
+- El tipo de la imagen (Imágenes a color o blanco y negro).
+- El tamaño de las imagenes.
+- El número que se representa en la imagen.
+
+Tras el preprocesamiento de datos, se han establecido todas las imagenes del mismo tamaño y del mismo tipo, quedando como caractirísticas relevantes:
+
+- Los píxeles de la imagen.
+- El número que se representa en la imagen.
+
+
+#### Obtener un fichero .arff:
+
+Después del preprocesamiento de datos, se creó un archivo .arff, el cual se utilizará para evaluar distintos algoritmos.
+
+![archivo .arff](https://https://github.com/carlosMoragon/practica3_IA/blob/main/python/dataset_imagenes.csv.arff)
+
+#### Evaluar distintos algoritmos de aprendizaje automático:
+
+
+#### Construcción de una red convolucional:
+
+
+#### Generar en Java un objeto persistente:
+
+
+#### Prototipo de aplicación que consulte al modelo:
+
