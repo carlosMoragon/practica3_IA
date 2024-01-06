@@ -1,5 +1,8 @@
 import tkinter as tk
-from PIL import ImageGrab
+from PIL import ImageGrab, Image, ImageTk
+import cv2
+import numpy as np
+import tensorflow as tf
 
 class PaintApp:
     def __init__(self, root):
@@ -19,6 +22,9 @@ class PaintApp:
         # Variable para almacenar la imagen capturada
         self.captured_image = None
 
+        # Cargar el modelo desde el archivo .h5
+        self.model = tf.keras.models.load_model("modelo.h5")
+
     def paint(self, event):
         x1, y1 = (event.x - 1), (event.y - 1)
         x2, y2 = (event.x + 1), (event.y + 1)
@@ -31,7 +37,29 @@ class PaintApp:
         x1 = x + self.canvas.winfo_width()
         y1 = y + self.canvas.winfo_height()
 
-        self.captured_image = ImageGrab.grab(bbox=(x, y, x1, y1))
+        captured_image = ImageGrab.grab(bbox=(x, y, x1, y1))
+
+        # Procesar la imagen y realizar la clasificación
+        processed_image = self.process_image(captured_image)
+        prediction = self.classify_image(processed_image)
+
+        # Mostrar la predicción en la consola
+        print(f"Predicción: {prediction}")
+
+    def process_image(self, image):
+        # Convertir la imagen capturada a un formato adecuado para el modelo
+        image = image.resize((28, 28))  # Ajustar al tamaño esperado por el modelo
+        image = image.convert("L")  # Convertir a escala de grises
+        image_array = np.array(image) / 255.0  # Normalizar los valores de píxeles
+        image_array = image_array.reshape((1, 28, 28, 1))  # Ajustar la forma para el modelo
+        return image_array
+
+    def classify_image(self, processed_image):
+        # Realizar la clasificación utilizando el modelo
+        prediction = self.model.predict(processed_image)
+        # Obtener la clase predicha (índice con la probabilidad más alta)
+        predicted_class = np.argmax(prediction)
+        return predicted_class
 
 if __name__ == "__main__":
     root = tk.Tk()
