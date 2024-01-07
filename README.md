@@ -224,12 +224,34 @@ Para la creación de esta red neuronal se han usado las siguientes herramientas:
      - **sklearn:** Utilizado para el entrenamiento de la red neuronal.
      - **matplotlib:** Utilizado para evaluar de forma gráfica el entrenamiento del modelo.
 
+Tras la construcción del modelo y su entrenamiento, se decidio evaluar según lo exacto que es el modelo y según sus perdidas:
+
+**Exactitud:**
+
+Tras entrenar el modelo, podemos observar una exactitud que ronda el 98-99%, pudiendo decir que es un modelo bastante exacto.
+
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/exactitud.png)
+
+
+**Perdidas:**
+
+Tras entrenar el modelo, podemos observar un valor de la función de perdida entorno al 5%, pudiendo concluir que está haciendo conclusiones bastantes precisas.
+
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/perdidas.png)
+
+
+Al analizar como de exacto es el modelo y como de preciso es, através de su función de perdidas, podemos concluir que es el algoritmo que mejor se ajusta al problema que afrontamos.
 
 
 #### Construcción de una red convolucional:
 
+La construcción de la red convolucional se puede dividir en varias partes:
 
-#### Generar en Java un objeto persistente:
+
+
+
+#### Generar un objeto persistente:
+
 
 
 #### Prototipo de aplicación que consulte al modelo:
