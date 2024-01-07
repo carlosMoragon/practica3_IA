@@ -446,6 +446,43 @@ La ejecución de la aplicación se ha pensado de 2 formas distintas:
    A continuación, ya podrá ejecutar el fichero app.py, con el siguiente comando:
    python3 ./src/app.py
 
+**Ejemplos:**
+
+**0:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-29-06.png)
 
 
+**1:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-49-09.png)
 
+
+**2:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-30-04.png)
+
+
+**3:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-53-10.png)
+
+
+**4:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-30-42.png)
+
+
+**5:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-30-53.png)
+
+
+**6:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-49-39.png)
+
+
+**7:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-51-41.png)
+
+
+**8:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-31-37.png)
+
+
+**9:**
+![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/Captura%20de%20pantalla%20de%202024-01-07%2018-31-51.png)
