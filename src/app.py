@@ -31,7 +31,7 @@ class PaintApp:
         result_label.pack(side=tk.BOTTOM)
 
         # Cargamos el modelo previamente entrenado
-        self.model = load_model('modelo.h5')
+        self.model = load_model('./src/modelo.h5')
 
     def paint(self, event):
         # Ajustamos el tamaño del trazo
