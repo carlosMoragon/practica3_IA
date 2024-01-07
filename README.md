@@ -426,9 +426,11 @@ Esta aplicación ha sido desarrollada en python, en el fichero ![app.py](https:/
 La ejecución de la aplicación se ha pensado de 2 formas distintas:
 
 1. **Docker:**
-
-   
-2. **Ejecutable .exe en linux:**
+   Si desea ejecutarlo mediante docker, deberá:
+   - Tener instalado docker
+   - Dar permisos de ejecución al fichero: ![ejecución.sh](https://github.com/carlosMoragon/practica3_IA/blob/main/ejecucion.sh), por ejemplo: chmod 777 ejecucion.sh
+   - Ejecutar el fichero 'ejecución.sh', el cual le desactivará por unos instantes la variable $DISPLAY, para poder desplegar la interfaz de usuario, pero al final de la ejecución se restablecerá.
+3. **Python:**
 
 
 
