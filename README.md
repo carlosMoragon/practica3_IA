@@ -226,11 +226,10 @@ Para la creación de esta red neuronal se han usado las siguientes herramientas:
 
 Tras la construcción del modelo y su entrenamiento, se decidio evaluar según lo exacto que es el modelo y según sus perdidas:
 
-# CAMBIAR ESTO POR PRECISIÓN!!!!!!!!!!!!!
 
-**Exactitud:**
+**Precisión:**
 
-Tras entrenar el modelo, podemos observar una exactitud que ronda el 98-99%, pudiendo decir que es un modelo bastante exacto.
+Tras entrenar el modelo, podemos observar una precisión que ronda el 98-99%, pudiendo decir que es un modelo bastante preciso.
 
 ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/exactitud.png)
 
@@ -242,7 +241,7 @@ Tras entrenar el modelo, podemos observar un valor de la función de perdida ent
 ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/perdidas.png)
 
 
-Al analizar como de exacto es el modelo y como de preciso es, através de su función de perdidas, podemos concluir que es el algoritmo que mejor se ajusta al problema que afrontamos.
+Al analizar como de preciso es, podemos concluir que es el algoritmo que mejor se ajusta al problema que afrontamos.
 
 
 #### Construcción de una red convolucional:
@@ -430,8 +429,13 @@ La ejecución de la aplicación se ha pensado de 2 formas distintas:
    - Tener instalado docker
    - Dar permisos de ejecución al fichero: ![ejecución.sh](https://github.com/carlosMoragon/practica3_IA/blob/main/ejecucion.sh), por ejemplo: chmod 777 ejecucion.sh
    - Ejecutar el fichero 'ejecución.sh', el cual le desactivará por unos instantes la variable $DISPLAY, para poder desplegar la interfaz de usuario, pero al final de la ejecución se restablecerá.
-3. **Python:**
 
+2. **Python:**
+   Si desea ejecutar con su entorno python, deberá instalarse las dependencias indicadas en el fichero ![requierements.txt](https://github.com/carlosMoragon/practica3_IA/blob/main/requirements.txt), ejecutando el siguiente comando:
+   pip install -r requirements.txt
+
+   A continuación, ya podrá ejecutar el fichero app.py, con el siguiente comando:
+   python3 ./src/app.py
 
 
 
