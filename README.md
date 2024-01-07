@@ -34,7 +34,7 @@ datos.
 paso 5. También se realizará con Weka.
 
 7. **Implementar un prototipo de aplicación que consulte el objeto persistente** generado en el paso 6. La aplicación cargará en memoria el objeto
-persistente, que tendrá como responsabilidad la resolución del problema propuesto (p.ej. el pronóstico de un resultado deportivo), e interactuará con el usuario a través de una interfaz (que puede ser de texto)
+persistente, que tendrá como responsabilidad la resolución del problema propuesto (p.ej. el pronóstico de un resultado deportivo), e interactuará con el usuario a través de una interfaz (que puede ser de texto)
 (véase la figura 1.2).
 
 
