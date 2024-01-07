@@ -63,7 +63,7 @@ Al trabajar con imagenes, se ha llevado a cabo un preprocesamiento de datos cuyo
 
 Este preprocesamiento se ha hecho por medio de python, teniendo como resultado todos los datos en un archivo .csv.
 
-```{python}
+```python
    from PIL import Image
    import pandas as pd
    import os
@@ -252,12 +252,12 @@ La construcción de la red convolucional se puede dividir en varias partes:
 1. **Separación de datos de entrenamiento y datos de prueba**
 
    Descargamos los datos del archivo .csv:
-   ```{python}
+   ```python
       df = pd.read_csv("dataset_imagenes.csv")
    ```
    
    Separamos la solución de las caractirísticas:
-   ```{python}
+   ```python
       # La primera columna es la etiqueta: lo que va a ser la salida
       # Estamos cogiendo los datos de las distintas columnas
       X = df.iloc[:, 1:].values  # Características (píxeles)
@@ -265,20 +265,20 @@ La construcción de la red convolucional se puede dividir en varias partes:
    ```
    
    Normalizamos los datos, para optimizar el entrenamiento:
-   ```{python}
+   ```python
       # Normalizar los valores de píxeles:
       # Los pixeles van de 0 a 255 asi que si dividimos entre 255 nos saldrá entre 0 y 1 los valores.
       X = X / 255.0
    ```
    
    Dividimos los datos en el entrenamiento y las soluciones:
-   ```{python}
+   ```python
       # Dividir los datos en conjuntos de entrenamiento y prueba
       X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
    ```
    
    Redimensionamos las fotografias a un tamaño 28x28 píxeles
-   ```{python}
+   ```python
       # Asumimos que la imagen está en blanco y negro, y es de 28x28 (como en los datos de entrenamiento)
       # EL -1 es para que se redimensione automáticamente el número de imagenes
       X_train = X_train.reshape(-1, 28, 28, 1)
@@ -286,7 +286,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
    ```
    
    Cambiamos las etiquetas de solucion a one-hot, para poder compararlo posteriormente.
-   ```{python}
+   ```python
       # El modelo me exige que las etiquetas sean en modelo one-hot. 
       # Siendo más expecifico es la función softmax de la última la que me lo exige.
       # El 10 es por que hay 10 categorias entonces será [1,0,0,0,0,0,0,0,0,0] por ejemplo si es el número 0.
@@ -297,7 +297,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
 2. **Creación de una red neuronal:**
 
    Definimos un modelo de red secuencial, es decir, no saltos de conexiones entre capas, cada capa se conecta con la siguiente capa.
-   ```{python}
+   ```python
    # Definición de la red neuronal
 
    # definimos un modelo de red neuronal secuencial
@@ -306,7 +306,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
 
    En la capa de entrada metemos 32 neuronas, de las cuales deja entrar a 3x3 píxeles por neurona.
    Utilizamos la función de activación 'relu', la cual es más idonea para una red convolucional.
-   ```{python}
+   ```python
    # Una primera capa:
    # Metemos neuronas en 2 dimensiones, las cuales son muy comunes en redes convolucionales, para imagenes.
    # Estás van a aprender 32 características.
@@ -323,7 +323,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
 
    Después de cada capa realizamos una agrupación, reduciendo la información a tratar y optimizando el entrenamiento del modelo.
    Para dicha agrupación hemos utilizado "MaxPooling", un agrupamiento por el mayor valor, funcionando muy bien con datos relevantes.
-   ```{python}
+   ```python
    # He añadido 3 capas por que es el estandar para redes CNN (Convolucionales)
    
    # Es una capa de agrupación, lo que hace es resumir la información agrupandola para reducir la cantidad
@@ -334,7 +334,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
    ```
 
    Como capas intermedias se ha implementado 3 capas, 2 de ellas con un tamaño del kernel de 3x3 píxeles, utilizando como función de activación 'relu'.
-   ```{python}
+   ```python
    modelo.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
    
    modelo.add(tf.keras.layers.MaxPooling2D((2, 2)))
@@ -346,7 +346,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
    La 3ª capa intermedia es una densa, lo que significa que cada neurona de la capa tiene una relación con cada neurona de la capa anterior.
    La elección de una capa densa es para recoger toda la información de la capa anterior y minimizar las perdidas.
    Antes de la capa densa, aplanamos los datos a una dimensión, en nuestro caso tenemos altura y anchura, y lo transformamos en un número.
-   ```{python}
+   ```python
    # Aplanar la salida de la última capa convolucional
    # Esto se hace por que se tiene que transformar una salida 3 dimensional (altura, anchura y dimensiones)
    # a una salida unidimensional para que se pueda utilizar una capa densa para la clasificación.
@@ -361,7 +361,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
 
    La capa de salida es también una capa densa, en la que tenemos 10 neurona, una por cada elemento de la clasificación (0-9).
    También cambiamos la función de activación a 'softmax', por que te realiza una clasificación no binaria, en nuestro caso en 10 elementos.
-   ```{python}
+   ```python
    # En este caso utilizaria sigmoide si quisiese una clasificación binaria.
    # Como tengo que clasificar en 10 casos añado 10 neuronas de salida.
    # He utilizado la función softmax, debido a que te da la probabilidad de cada cosa.
@@ -373,7 +373,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
    Utilizamos 'adam' para ajustar los pesos en el momento del entrenamiento.
    Utilizamos 'categorical_crossentropy' como función de pérdida, debido a que tenemos un problema de clasificación multiclase.
    Utilizamos 'accuracy' (precisión), como variable para evaluar el modelo.
-   ```{python}
+   ```python
    # Compilar el modelo
    # Adam: es el algoritmo que se encarga de ajustar los pesos en el entrenamiento.
    # La tasa de aprendizaje se adapta en cada momento, no es fija, aprendiendo de los gradientes previamente calculados.
@@ -392,7 +392,7 @@ La construcción de la red convolucional se puede dividir en varias partes:
    Durante cada época, el modelo realizará el proceso de retropropagación y ajustará sus pesos para minimizar la función de pérdida en el conjunto de
    entrenamiento. La retropropagación implica calcular el gradiente de la función de pérdida con respecto a los pesos del modelo y luego utilizar un algoritmo de
    optimización para actualizar los pesos en la dirección que minimiza la pérdida.
-   ```{python}
+   ```python
    # Entrenamos el modelo: lo guardamos en un history para ver como ha ido aprendiendo
    history = modelo.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test))
    
