@@ -417,6 +417,20 @@ UserWarning: You are saving your model as an HDF5 file via `model.save()`. This 
 Esta advertencia nos comunica que la extensión .h5 es *legacy*, es decir, que hace uso de dependencias antiguas de la libreria HDF5, la cual guarda el modelo.
 
 
-#### Prototipo de aplicación que consulte al modelo:
+#### Prototipo de aplicación que consulte al modelo
+
+Para probar el buen funcionamiento del modelo, se ha realizado un prototipo de aplicación, en el cual se pueden dibujar números y se evaluarán por medio del modelo entrenado.
+
+Esta aplicación ha sido desarrollada en python, en el fichero ![app.py](https://github.com/carlosMoragon/practica3_IA/blob/main/src/app.py).
+
+La ejecución de la aplicación se ha pensado de 2 formas distintas:
+
+1. **Docker:**
+
+   
+2. **Ejecutable .exe en linux:**
+
+
+
 
 
