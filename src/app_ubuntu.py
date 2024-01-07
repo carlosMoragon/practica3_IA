@@ -74,28 +74,28 @@ class PaintApp:
             # Lee la imagen capturada
             # captured_image = Image.open(image_path)
 
-            # Redimensiona la imagen al tamaño esperado por el modelo (28x28)
+            # Redimensionamos la imagen a un tamaño 28x28 pixeles.
             resized_image = captured_image.resize((28, 28))
 
             # Guarda la imagen redimensionada (opcional, solo para referencia)
             # resized_image_path = "resized_image.png"
             # self.save_image(np.array(resized_image), resized_image_path)
 
-            # Preprocesa la imagen para adaptarla al modelo
-            img_array = np.array(resized_image)  # Ajusta al tamaño esperado por el modelo
-            img_array = img_array / 255.0  # Normaliza los valores de píxeles a [0,1]
-            img_array = np.expand_dims(img_array, axis=-1)  # Añade una dimensión adicional para el canal de color
-            img_array = np.expand_dims(img_array, axis=0)  # Añade una dimensión adicional para el lote
+            # Preprocesamos la imagen, para adaptarla al modelo.
+            img_array = np.array(resized_image) 
+            img_array = img_array / 255.0  # Normalizamos los píxeles.
+            img_array = np.expand_dims(img_array, axis=-1)  # Añadimos una dimensión adicional para el canal de color.
+            img_array = np.expand_dims(img_array, axis=0)  # Añadimos una dimensión adicional para el lote.
 
-            # Imprime el resultado en la consola (puedes ajustar según tu lógica)
-            predictions = self.model.predict(img_array)  # Ajusta según tu lógica
+            # Realizamos las predicciones.
+            predictions = self.model.predict(img_array)
             print("Resultado de la inferencia:", predictions)
 
-            # Imprime el número predicho
+            # Imprimimos el número del [0-9] según la predicción.
             predicted_number = np.argmax(predictions)
             print("Número predicho:", predicted_number)
 
-            # Actualiza la etiqueta en la interfaz gráfica
+            # Sacamos por pantalla el número predicho.
             self.inference_result.set(f"Número predicho: {predicted_number}")
 
     '''
