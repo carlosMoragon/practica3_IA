@@ -1,6 +1,10 @@
-# practica3_IA
+practica3_IA
+=======
+
+## Realizada por Carlos Moragón Corella
 
 ### ENUNCIADO: Práctica de aprendizaje automático
+
 
 #### Pasos a realizar
 
@@ -33,6 +37,8 @@ paso 5. También se realizará con Weka.
 persistente, que tendrá como responsabilidad la resolución del problema propuesto (p.ej. el pronóstico de un resultado deportivo), e interactuará con el usuario a través de una interfaz (que puede ser de texto)
 (véase la figura 1.2).
 
+
+
 #### Material a entregar
 
 Deberá ser el siguiente:
@@ -42,7 +48,9 @@ Deberá ser el siguiente:
 3. El fichero .arf
 
 
+
 ### Resolución de la práctica
+
 
 #### Elección del problema:
 
@@ -56,6 +64,7 @@ Para la elección de los datos se han tomado fotografías de números del 0-9.
 Los datos escogidos constan con un total de 42000 fotografias.
 
 ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/grafica_datos.png)
+
 
 #### Preprocesamiento de datos:
 
@@ -119,7 +128,6 @@ Siendo **label** la columna utilizada como clase, y las demás los píxeles. En 
 ![archivo .zip con las imagenes](https://https://github.com/carlosMoragon/practica3_IA/blob/main/python/dataset_imagenes.zip)
 
 
-
 #### Identificar las características relevantes de los hechos:
 
 Al estar trabajando con clasificación de imagenes, los parametros más relevantes son:
@@ -149,100 +157,101 @@ Mi conjunto de datos consta de 42000 registros, los cuales tiene 785 columnas, d
 
 Al tener tantos datos y una capacidad de cómputo limitada, la evaluación de los algortimos no ha sido del todo satisfactoria.
 
-##### Random Forest:
 
-Random Forest es un algoritmo que crea multiples árboles de decisión durante su entrenamiento, convinandolos para tener un árbol más robusto y preciso.
+**Random Forest:**
+   
+   Random Forest es un algoritmo que crea multiples árboles de decisión durante su entrenamiento, convinandolos para tener un árbol más robusto y preciso.
+   
+   Random forest es utilizado en problemas de clasificación y regresión.
+   
+   ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/randomForest.png)
+   
+   Al evaluar los datos con Random Forest, observamos:
+   
+   (Ignoramos el coeficiente de correlación, debido a que no es un problema de regresión, sino de clasificación.)
+   
+   - **Error absoluto medio:**
+   Nos sale un valor bajo (0,0035), lo que es deseable.
+   
+   Lo que indica que las predicciones que realiza el modelo, difieren muy poco del valor real.
+     
+   - **Error cuadrático medio:**
+   El Error cuadrático medio es más grande que el Error cuadrático medio.
+   
+   Puede deberse a la penalización adicional de los errores más grandes. 
+     
+   - **Error absoluto relativo:**
+   El error absoluto relativo es de 90,0223%, lo que es relativamente alto.
+   
+   Sugiere que las predicciones pueden tener un margen de error considerable en relación con los valores reales.
+   
+   - **Error cuadrático relativo:**
+   Igual que el Error absoluto Relativo, indica un alto error cuadrático en las predicciones del modelo.
 
-Random forest es utilizado en problemas de clasificación y regresión.
+   
+   Al obtener estos datos, se podrían ajustar el número de árboles creados por el modelo, pero se ha optado por otra opción.
+   
+   
+**Regresión Lineal:**
+   
+   ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/regresionLineal.png)
+   
+   El modelo de regresión lineal fue descartado tras un largo tiempo de procesamiento/entrenamiento del modelo.
+   
+   Es de suponer que el alto número de datos (42000) y la alta cantidad de características (785), han hecho que este algoritmo tarde mucho tiempo en el entrenamiento.
+   
+   Al trascurrir varias horas, se decidio interrumpir el procesamiento del algoritmo, siendo una variable crítica el rápido entrenamiento de un modelo.
+   
 
-![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/randomForest.png)
-
-Al evaluar los datos con Random Forest, observamos:
-
-(Ignoramos el coeficiente de correlación, debido a que no es un problema de regresión, sino de clasificación.)
-
-- **Error absoluto medio:**
-Nos sale un valor bajo (0,0035), lo que es deseable.
-
-Lo que indica que las predicciones que realiza el modelo, difieren muy poco del valor real.
-  
-- **Error cuadrático medio:**
-El Error cuadrático medio es más grande que el Error cuadrático medio.
-
-Puede deberse a la penalización adicional de los errores más grandes. 
-  
-- **Error absoluto relativo:**
-El error absoluto relativo es de 90,0223%, lo que es relativamente alto.
-
-Sugiere que las predicciones pueden tener un margen de error considerable en relación con los valores reales.
-
-- **Error cuadrático relativo:**
-Igual que el Error absoluto Relativo, indica un alto error cuadrático en las predicciones del modelo.
-
-
-
-Al obtener estos datos, se podrían ajustar el número de árboles creados por el modelo, pero se ha optado por otra opción.
-
-
-##### Regresión Lineal:
-
-![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/regresionLineal.png)
-
-El modelo de regresión lineal fue descartado tras un largo tiempo de procesamiento/entrenamiento del modelo.
-
-Es de suponer que el alto número de datos (42000) y la alta cantidad de características (785), han hecho que este algoritmo tarde mucho tiempo en el entrenamiento.
-
-Al trascurrir varias horas, se decidio interrumpir el procesamiento del algoritmo, siendo una variable crítica el rápido entrenamiento de un modelo.
-
-
-##### Perceptron Multicapa / Red Neuronal:
-
-![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/MultiLayerPerceptron.png)
-
-Buscando una mejora del tiempo de procesamiento, se decidio probar con el algoritmo Perceptrón Multicapa.
-
-Tras 3 horas de procesamiento, se decidio interrumpir la ejecución del algoritmo.
-
-Las posibles razones del largo tiempo de procesamiento pueden ser:
-
-- Alta complejidad del modelo, es decir, gran numero de capas y/o gran numero de neuronas por capa.
-- Una mala optimización de los hiperparámetros, es decir:
-     - Mala tasa de aprendizaje.
-     - Tamaño de lote alto.
-     - Función de activación no adecuada.
-
-##### Red neuronal convolucional:
-
-Tras un análisis de los problemas anteriormente comentados, se decidió crear manualmente una red neuronal en un sistema con un alto procesamiento.
-
-Para la creación de esta red neuronal se han usado las siguientes herramientas:
-
-- **Google Colab:** Entorno de desarrollo en la nube, con una capacidad de computo superior a la utilizada anteriormente.
-- **Librerias de python:**
-     - **pandas:** Utilizado para el manejo de datos en forma de datasets.
-     - **tensorflow:** Utilizado para la creación de la red neuronal.
-     - **sklearn:** Utilizado para el entrenamiento de la red neuronal.
-     - **matplotlib:** Utilizado para evaluar de forma gráfica el entrenamiento del modelo.
-
-Tras la construcción del modelo y su entrenamiento, se decidio evaluar según lo exacto que es el modelo y según sus perdidas:
+**Perceptron Multicapa / Red Neuronal:**
+   
+   ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/MultiLayerPerceptron.png)
+   
+   Buscando una mejora del tiempo de procesamiento, se decidio probar con el algoritmo Perceptrón Multicapa.
+   
+   Tras 3 horas de procesamiento, se decidio interrumpir la ejecución del algoritmo.
+   
+   Las posibles razones del largo tiempo de procesamiento pueden ser:
+   
+   - Alta complejidad del modelo, es decir, gran numero de capas y/o gran numero de neuronas por capa.
+   - Una mala optimización de los hiperparámetros, es decir:
+        - Mala tasa de aprendizaje.
+        - Tamaño de lote alto.
+        - Función de activación no adecuada.
 
 
-**Precisión:**
-
-Tras entrenar el modelo, podemos observar una precisión que ronda el 98-99%, pudiendo decir que es un modelo bastante preciso.
-
-![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/exactitud.png)
-
-
-**Perdidas:**
-
-Tras entrenar el modelo, podemos observar un valor de la función de perdida entorno al 5%, pudiendo concluir que está haciendo conclusiones bastantes precisas.
-
-![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/perdidas.png)
-
-
-Al analizar como de preciso es, podemos concluir que es el algoritmo que mejor se ajusta al problema que afrontamos.
-
+**Red neuronal convolucional:**
+   
+   Tras un análisis de los problemas anteriormente comentados, se decidió crear manualmente una red neuronal en un sistema con un alto procesamiento.
+   
+   Para la creación de esta red neuronal se han usado las siguientes herramientas:
+   
+   - **Google Colab:** Entorno de desarrollo en la nube, con una capacidad de computo superior a la utilizada anteriormente.
+   - **Librerias de python:**
+        - **pandas:** Utilizado para el manejo de datos en forma de datasets.
+        - **tensorflow:** Utilizado para la creación de la red neuronal.
+        - **sklearn:** Utilizado para el entrenamiento de la red neuronal.
+        - **matplotlib:** Utilizado para evaluar de forma gráfica el entrenamiento del modelo.
+   
+   Tras la construcción del modelo y su entrenamiento, se decidio evaluar según lo exacto que es el modelo y según sus perdidas:
+   
+   
+   **Precisión:**
+   
+   Tras entrenar el modelo, podemos observar una precisión que ronda el 98-99%, pudiendo decir que es un modelo bastante preciso.
+   
+   ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/exactitud.png)
+   
+   
+   **Perdidas:**
+   
+   Tras entrenar el modelo, podemos observar un valor de la función de perdida entorno al 5%, pudiendo concluir que está haciendo conclusiones bastantes precisas.
+   
+   ![](https://github.com/carlosMoragon/practica3_IA/blob/main/imgs_readme/perdidas.png)
+   
+   
+   Al analizar como de preciso es, podemos concluir que es el algoritmo que mejor se ajusta al problema que afrontamos.
+   
 
 #### Construcción de una red convolucional:
 
